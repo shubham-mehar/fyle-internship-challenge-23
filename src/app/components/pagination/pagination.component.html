@@ -1,0 +1,20 @@
+<div>
+  <div class="text-blue-500">
+    <label for="reposPerPage">Repositories Per Page:</label>
+    <input type="number" [(ngModel)]="reposPerPage" min="1" max="100" />
+    <button (click)="applyRepositoriesPerPage()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 ml-2">
+  Apply 
+</button>
+
+  </div>
+  <div *ngIf="totalItems > 0" class="bottom-0 left-0 right-0 flex justify-center items-end p-4 bg-gray-300 border">
+    <button (click)="onPageChanged(currentPage - 1)" [disabled]="currentPage === 1" class="px-4 py-2 border rounded mr-2">Previous</button>
+    <div class="flex items-center">
+      <span class="mr-2">Page {{ currentPage }} of {{ totalPages }}</span>
+      <ng-container *ngFor="let page of pages">
+        <button (click)="onPageChanged(page)" [disabled]="currentPage === page" class="px-2 py-2 border rounded mr-2">{{ page }}</button>
+      </ng-container>
+    </div>
+    <button (click)="onPageChanged(currentPage + 1)" [disabled]="currentPage === totalPages" class="px-4 py-2 border rounded ml-2">Next</button>
+  </div>
+</div>

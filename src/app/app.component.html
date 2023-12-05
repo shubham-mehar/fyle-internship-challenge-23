@@ -1,5 +1,11 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
+<div>
+  <div class="grid v-screen place-items-center bg-blue-500 text-white p-4">
+    <div class="font-bold text-3xl">
+      Fyle Internship Challenge
+    </div>
+  </div>
+  <div class="container mx-auto my-8">
+    <app-user-input (searchUsername)="onSearchUsername($event)" [user]="user"></app-user-input>
+    <app-repo-list [username]="username" [user]="user" [reposPerPage]="reposPerPage"></app-repo-list>
   </div>
 </div>
